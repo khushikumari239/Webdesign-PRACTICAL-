@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<!DOCTYPE student SYSTEM "student.dtd">
+<student>
+  <name>Khushi</name>
+  <roll>102</roll>
+  <course>BCA</course>
+</student>

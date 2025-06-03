@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h3>Click on Image to Get Coordinates</h3>
+  <img src="clickimage.jpg" onclick="getCoords(event)" style="width:400px;">
+  <p id="coords"></p>
+
+  <script>
+    function getCoords(event) {
+      var x = event.offsetX;
+      var y = event.offsetY;
+      document.getElementById("coords").innerHTML = "Coordinates: X=" + x + " Y=" + y;
+    }
+  </script>
+</body>
+</html>

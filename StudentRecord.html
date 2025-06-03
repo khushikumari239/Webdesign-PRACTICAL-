@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function validateForm() {
+  var name = document.forms["studentForm"]["name"].value;
+  if (name == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+}
+</script>
+</head>
+<body>
+  <h2>Student Record Form</h2>
+  <form name="studentForm" onsubmit="return validateForm()">
+    Name: <input type="text" name="name"><br><br>
+    Roll No: <input type="text" name="roll"><br><br>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>

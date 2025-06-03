@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive World Map</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .map-wrapper {
+      position: relative;
+      width: 800px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .map-wrapper img {
+      width: 100%;
+      display: block;
+    }
+
+    .hotspot {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background-color: red;
+      border: 2px solid white;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .hotspot:hover {
+      transform: scale(1.3);
+    }
+
+    .info-box {
+      margin-top: 30px;
+      padding: 20px;
+      width: 800px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      display: none;
+    }
+
+    .info-box h3 {
+      margin: 0 0 10px;
+      color: #007bff;
+    }
+
+    .info-box p {
+      margin: 0;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    /* Hotspot positions (adjusted for 800px wide image) */
+    #india {
+      top: 260px;
+      left: 400px;
+    }
+
+    #china {
+      top: 220px;
+      left: 470px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🌏 Click a Hotspot to Learn About the Country</h2>
+
+  <div class="map-wrapper">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" alt="World Map">
+
+    <!-- Hotspots -->
+    <div class="hotspot" id="india" onclick="showInfo('india')"></div>
+    <div class="hotspot" id="china" onclick="showInfo('china')"></div>
+  </div>
+
+  <!-- Info Box -->
+  <div class="info-box" id="infoBox">
+    <h3 id="countryName">Country Name</h3>
+    <p id="countryInfo">Click on a red dot to display country information.</p>
+  </div>
+
+  <script>
+    const countryData = {
+      india: {
+        name: "India",
+        info: "India is located in South Asia and is known for its diverse culture, languages, and heritage. It has the second-largest population in the world."
+      },
+      china: {
+        name: "China",
+        info: "China is located in East Asia and is the world's most populous country. It's known for its Great Wall, ancient civilization, and rapid economic growth."
+      }
+    };
+
+    function showInfo(countryId) {
+      const infoBox = document.getElementById("infoBox");
+      const nameElem = document.getElementById("countryName");
+      const infoElem = document.getElementById("countryInfo");
+
+      nameElem.textContent = countryData[countryId].name;
+      infoElem.textContent = countryData[countryId].info;
+      infoBox.style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
